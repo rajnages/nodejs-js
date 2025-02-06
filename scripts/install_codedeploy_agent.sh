@@ -7,7 +7,7 @@ apt-get install -y ruby wget
 
 # Determine the AWS region of the instance
 echo "Detecting AWS region..."
-REGION=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | grep region | awk -F\" '{print $4}')
+REGION="us-east-1"
 if [ -z "$REGION" ]; then
   echo "Failed to detect AWS region. Exiting."
   exit 1
@@ -16,7 +16,7 @@ fi
 # Download and install the CodeDeploy agent
 echo "Downloading and installing the CodeDeploy agent for region: $REGION..."
 cd /tmp
-wget https://aws-codedeploy-${REGION}.s3.${REGION}.amazonaws.com/latest/install
+wget https://aws-codedeploy-$REGION.s3.$REGION.amazonaws.com/latest/install
 chmod +x ./install
 
 # Run the installation script

@@ -1,0 +1,28 @@
+version: 0.0
+os: linux
+
+# This section defines where the source code from the zip file will be extracted
+files:
+  - source: /
+    destination: /var/www/html/nodejs-app
+
+# This section defines hooks which are scripts that will be run at different points in the deployment process
+hooks:
+  # This hook will be run before the install phase and will install the dependencies required by the application
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+
+  # This hook will be run after the install phase and will start the Node.js server
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: root
+
+# This section defines the permissions for the files and directories in the deployment
+permissions:
+  - object: /var/www/html/nodejs-app
+    owner: root
+    group: root
+    mode: 755

@@ -3,7 +3,7 @@ version: 0.2
 # Define environment variables
 env:
   variables:
-    S3_BUCKET: "samplebucketdevopsprojects" # Replace with your S3 bucket name
+    S3_BUCKET: "nodejsappcodeuploading" # Replace with your S3 bucket name
     APP_NAME: "nodejs-app"
 
 phases:

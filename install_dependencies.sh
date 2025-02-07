@@ -1,4 +1,4 @@
 #!/bin/bash
-echo "Installing dependencies..."
-cd /var/www/html/nodejs-app
-npm install
+sudo echo "Installing dependencies..."
+sudo cd /var/www/html/nodejs-app
+sudo npm install
